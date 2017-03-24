@@ -73,7 +73,7 @@ class BashOperator(BaseOperator):
                 logging.info("Output:")
                 line = ''
                 for line in iter(sp.stdout.readline, b''):
-                    line = line.decode(self.output_encoding).strip()
+                    line = line.decode(self.output_encoding, 'ignore').strip()
                     logging.info(line)
                 sp.wait()
                 logging.info("Command exited with "
